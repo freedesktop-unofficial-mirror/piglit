@@ -376,7 +376,7 @@ add_plain_test(texturing, 'depth-tex-compare')
 
 glslparsertest = Group()
 def add_glslparsertest(shader, result):
-	glslparsertest[shader] = PlainExecTest(['glslparsertest', 'tests/glslparsertest/shaders/' + shader, result])
+	glslparsertest[shader] = PlainExecTest(['../tests/glslparsertest/external-glslparsertest.sh', 'tests/glslparsertest/shaders/' + shader, result])
 
 add_glslparsertest('CorrectBuiltInOveride.frag', 'pass')
 add_glslparsertest('CorrectComma.frag', 'pass')
@@ -566,7 +566,7 @@ add_glslparsertest('while2.frag', 'fail')
 add_glslparsertest('TernaryOp.frag', 'fail')
 
 def add_otherglslparsertest(shader, result):
-	glslparsertest[shader] = PlainExecTest(['glslparsertest', 'tests/glslparsertest/' + shader, result])
+	glslparsertest[shader] = PlainExecTest(['../tests/glslparsertest/external-glslparsertest.sh', 'tests/glslparsertest/' + shader, result])
 add_otherglslparsertest('glsl2/array-01.vert', 'fail')
 add_otherglslparsertest('glsl2/array-02.vert', 'fail')
 add_otherglslparsertest('glsl2/array-03.vert', 'pass')
