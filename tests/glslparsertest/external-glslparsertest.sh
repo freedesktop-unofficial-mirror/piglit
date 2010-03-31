@@ -25,7 +25,7 @@ if test "x$2" = xpass; then
 	echo PIGLIT: {\'result\': \'fail\' }
     fi
 else
-    if test "$status" = "0"; then
+    if test "$status" = "0" -o "$status" = 139; then
 	echo "shader should have failed:"
 	cat $1
 	echo PIGLIT: {\'result\': \'fail\' }
