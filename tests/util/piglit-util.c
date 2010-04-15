@@ -435,7 +435,7 @@ piglit_compile_shader(GLenum target, char *filename)
 static GLuint
 compile_shader(GLuint prog, GLenum target)
 {
-	GLenum ok;
+	GLint ok;
 
 	glCompileShader(prog);
 
