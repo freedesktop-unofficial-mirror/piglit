@@ -11,7 +11,7 @@ if test "x$2" != "xpass" -a "x$2" != "xfail"; then
     exit 1;
 fi
 
-result=$(~/src/glsl2/glsl $type $1)
+result=$($GLSL_PARSER $type $1)
 status=$?
 
 if test "x$2" = xpass; then
