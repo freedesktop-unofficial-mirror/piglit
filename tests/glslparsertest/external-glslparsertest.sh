@@ -1,17 +1,11 @@
 #!/bin/sh
 
-if echo $1 | grep \\.frag > /dev/null; then
-    type="f"
-else
-    type="v"
-fi
-
 if test "x$2" != "xpass" -a "x$2" != "xfail"; then
     echo "usage: external-glslparsertest.sh filename [pass|fail]"
     exit 1;
 fi
 
-result=$($GLSL_PARSER $type $1)
+result=$($GLSL_PARSER $1)
 status=$?
 
 if test "x$2" = xpass; then
