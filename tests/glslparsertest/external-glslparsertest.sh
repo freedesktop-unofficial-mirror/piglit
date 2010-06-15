@@ -5,6 +5,19 @@ if test "x$2" != "xpass" -a "x$2" != "xfail"; then
     exit 1;
 fi
 
+if test "x$GLSL_PARSER" = x ; then
+    echo 'Set GLSL_PARSER env var to point to parser program.'
+    echo PIGLIT: {\'result\': \'fail\' }
+    exit
+fi
+
+if test ! -x $GLSL_PARSER ; then
+    echo 'Program specified by GLSL_PARSER env var does not exist or is not executable.'
+    echo PIGLIT: {\'result\': \'fail\' }
+    exit
+fi
+
+
 result=$($GLSL_PARSER $1)
 status=$?
 
